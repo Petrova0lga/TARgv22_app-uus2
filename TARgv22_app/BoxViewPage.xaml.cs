@@ -13,14 +13,16 @@ namespace TARgv22_app
     public partial class BoxViewPage : ContentPage
     {
         BoxView box;
+        Random random = new Random();
         public BoxViewPage()
         {
+            int r = 0, g = 0, b = 0;
             box = new BoxView
             {
-                Color = Color.FromRgb(0, 0, 0),
-                CornerRadius = 15,
-                WidthRequest = 100,
-                HeightRequest = 200,
+                Color = Color.FromRgb(r, g, b),
+                CornerRadius = 20,
+                WidthRequest = 200,
+                HeightRequest = 300,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.Center
             };
@@ -40,12 +42,12 @@ namespace TARgv22_app
         {
             rnd = new Random();
             box.Color = Color.FromRgb(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
-            box.WidthRequest = box.Width + 50;
-            box.HeightRequest = box.HeightRequest + 50;
+            box.WidthRequest = box.Width + 10;
+            box.HeightRequest = box.HeightRequest + 10;
 
             if (box.WidthRequest > (int)DeviceDisplay.MainDisplayInfo.Width / 5)
             {
-                box.HeightRequest = 100;
+                box.HeightRequest = 300;
                 box.WidthRequest = 200;
             }
         }
